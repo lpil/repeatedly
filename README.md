@@ -1,17 +1,17 @@
-# repeatly
+# repeatedly
 
 Call a function repeatedly with a number of milliseconds between each call.
 
-[![Package Version](https://img.shields.io/hexpm/v/repeatly)](https://hex.pm/packages/repeatly)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/repeatly/)
+[![Package Version](https://img.shields.io/hexpm/v/repeatedly)](https://hex.pm/packages/repeatedly)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/repeatedly/)
 
 Works on both Erlang and JavaScript runtimes!
 
 ```sh
-gleam add repeatly
+gleam add repeatedly
 ```
 ```gleam
-import repeatly
+import repeatedly
 
 pub fn main() {
   // Print every 500ms
@@ -24,5 +24,5 @@ pub fn main() {
 }
 ```
 
-Further documentation can be found at <https://hexdocs.pm/repeatly>.
+Further documentation can be found at <https://hexdocs.pm/repeatedly>.
 
