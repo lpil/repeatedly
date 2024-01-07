@@ -1,11 +1,15 @@
-pub type Repeater
+pub type Repeater(state)
 
 /// Call a function every specified number of milliseconds, waiting the number
 /// of milliseconds before the first call.
 ///
 @external(erlang, "repeatedly_ffi", "call")
 @external(javascript, "./repeatedly_ffi.mjs", "call")
-pub fn call(delay_ms: Int, function: fn(Int) -> a) -> Repeater
+pub fn call(
+  delay_ms: Int,
+  state: state,
+  function: fn(state, Int) -> a,
+) -> Repeater(state)
 
 /// Stop the repeater, preventing it from triggering again.
 ///
@@ -17,7 +21,7 @@ pub fn call(delay_ms: Int, function: fn(Int) -> a) -> Repeater
 ///
 @external(erlang, "repeatedly_ffi", "stop")
 @external(javascript, "./repeatedly_ffi.mjs", "stop")
-pub fn stop(repeater: Repeater) -> Nil
+pub fn stop(repeater: Repeater(state)) -> Nil
 
 /// Replace the function being called by a repeater.
 ///
@@ -29,4 +33,4 @@ pub fn stop(repeater: Repeater) -> Nil
 ///
 @external(erlang, "repeatedly_ffi", "replace")
 @external(javascript, "./repeatedly_ffi.mjs", "replace")
-pub fn replace(repeater: Repeater, function: fn(Int) -> a) -> Nil
+pub fn replace(repeater: Repeater(state), function: fn(state, Int) -> a) -> Nil
