@@ -33,4 +33,19 @@ pub fn stop(repeater: Repeater(state)) -> Nil
 ///
 @external(erlang, "repeatedly_ffi", "replace")
 @external(javascript, "./repeatedly_ffi.mjs", "replace")
-pub fn replace(repeater: Repeater(state), function: fn(state, Int) -> a) -> Nil
+pub fn set_function(
+  repeater: Repeater(state),
+  function: fn(state, Int) -> a,
+) -> Nil
+
+/// Set the repeater state.
+///
+/// On Erlang if the repeater message queue is not empty then this message will
+/// handled after all other messages.
+///
+/// On JavaScript there is no message queue so it will stop immediately, though
+/// not interrupt the function callback if currently being executed.
+///
+@external(erlang, "repeatedly_ffi", "set_state")
+@external(javascript, "./repeatedly_ffi.mjs", "set_state")
+pub fn set_state(repeater: Repeater(state), state: state) -> Nil

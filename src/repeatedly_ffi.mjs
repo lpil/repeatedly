@@ -25,3 +25,7 @@ export function stop(repeater) {
 export function replace(repeater, fun) {
   repeater.fun = fun;
 }
+
+export function set_state(repeater, state) {
+  repeater.state = state;
+}

@@ -12,7 +12,7 @@ pub fn main() {
 
   repeatedly.call(800, Nil, fn(_, _) {
     io.println("Sending replace 1")
-    repeatedly.replace(repeater, fn(x, i) {
+    repeatedly.set_function(repeater, fn(x, i) {
       io.println(int.to_string(x) <> int.to_string(i * 100))
       x - 1
     })
@@ -20,7 +20,7 @@ pub fn main() {
 
   repeatedly.call(1200, Nil, fn(_, _) {
     io.println("Sending replace 2")
-    repeatedly.replace(repeater, fn(x, i) {
+    repeatedly.set_function(repeater, fn(x, i) {
       io.println(int.to_string(x) <> int.to_string(i))
       x - 1
     })

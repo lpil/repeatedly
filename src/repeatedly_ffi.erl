@@ -1,7 +1,7 @@
 -module(repeatedly_ffi).
 
 % Public API
--export([call/3, stop/1, replace/2]).
+-export([call/3, stop/1, replace/2, set_state/2]).
 
 % Gen server callbacks
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2]).
@@ -20,6 +20,9 @@ call(DelayMs, State, Function) ->
 
 replace(Pid, Function) ->
     erlang:send(Pid, {replace, Function}).
+
+set_state(Pid, State) ->
+    erlang:send(Pid, {set_state, State}).
 
 stop(Pid) ->
     erlang:send(Pid, stop).
@@ -41,6 +44,9 @@ handle_info(tick, State = #state{function = F, index = I, state = S}) ->
 
 handle_info({replace, F}, State) ->
     {noreply, State#state{function = F}};
+
+handle_info({set_state, S}, State) ->
+    {noreply, State#state{state = S}};
 
 handle_info(stop, _) ->
     {stop, normal, ok};

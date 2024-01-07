@@ -15,7 +15,7 @@ import repeatedly
 
 pub fn main() {
   // Print every 500ms
-  let repeater = repeatedly.call(500, Nil, fn(i) {
+  let repeater = repeatedly.call(500, Nil, fn(_state, i) {
     io.println("Call number " <> int.to_string(i))
   })
 
