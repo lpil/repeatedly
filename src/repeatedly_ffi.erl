@@ -24,8 +24,8 @@ replace(Pid, Function) ->
 set_state(Pid, State) ->
     erlang:send(Pid, {set_state, State}).
 
-stop(Pid) ->
-    erlang:send(Pid, stop).
+stop(Pid) when is_pid(Pid) ->
+    gen_server:stop(Pid).
 
 init(State) ->
     schedule_next(State),
@@ -47,9 +47,6 @@ handle_info({replace, F}, State) ->
 
 handle_info({set_state, S}, State) ->
     {noreply, State#state{state = S}};
-
-handle_info(stop, _) ->
-    {stop, normal, ok};
 
 handle_info(_Info, State) ->
     {noreply, State}.
