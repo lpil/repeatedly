@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.1 - 2024-01-07
+
+- Stopping is now synchronous on Erlang.
+
 ## v2.0.0 - 2024-01-07
 
 - The repeater now holds a state value which can be updated on each iteration.
