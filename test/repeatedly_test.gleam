@@ -4,12 +4,22 @@ import gleam/int
 
 pub fn main() {
   let repeater =
-    repeatedly.call(500, fn(i) {
+    repeatedly.call(250, fn(i) {
       // Here we go!
       io.println(int.to_string(i))
     })
 
-  repeatedly.call(2000, fn(_) {
+  repeatedly.call(800, fn(_) {
+    io.println("Sending replace 1")
+    repeatedly.replace(repeater, fn(i) { io.println(int.to_string(i * 100)) })
+  })
+
+  repeatedly.call(1200, fn(_) {
+    io.println("Sending replace 2")
+    repeatedly.replace(repeater, fn(i) { io.println(int.to_string(i)) })
+  })
+
+  repeatedly.call(5000, fn(_) {
     io.println("Sending stop")
     repeatedly.stop(repeater)
   })

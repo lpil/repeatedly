@@ -1,6 +1,6 @@
 # repeatedly
 
-Call a function repeatedly with a number of milliseconds between each call.
+Call a function repeatedly with a delay between each call.
 
 [![Package Version](https://img.shields.io/hexpm/v/repeatedly)](https://hex.pm/packages/repeatedly)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/repeatedly/)
