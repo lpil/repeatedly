@@ -11,19 +11,16 @@ pub fn main() {
     })
 
   repeatedly.call(800, Nil, fn(_, _) {
-    io.println("Sending replace 1")
+    io.println("set function")
     repeatedly.set_function(repeater, fn(x, i) {
       io.println(int.to_string(x) <> int.to_string(i * 100))
       x - 1
     })
   })
 
-  repeatedly.call(1200, Nil, fn(_, _) {
-    io.println("Sending replace 2")
-    repeatedly.set_function(repeater, fn(x, i) {
-      io.println(int.to_string(x) <> int.to_string(i))
-      x - 1
-    })
+  repeatedly.call(800, Nil, fn(_, _) {
+    io.println("update state")
+    repeatedly.update_state(repeater, fn(x) { x * 1000 })
   })
 
   repeatedly.call(5000, Nil, fn(_, _) {

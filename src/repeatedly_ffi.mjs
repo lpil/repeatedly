@@ -26,6 +26,6 @@ export function replace(repeater, fun) {
   repeater.fun = fun;
 }
 
-export function set_state(repeater, state) {
-  repeater.state = state;
+export function update_state(repeater, f) {
+  repeater.state = f(repeater.state);
 }

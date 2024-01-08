@@ -46,6 +46,21 @@ pub fn set_function(
 /// On JavaScript there is no message queue so it will stop immediately, though
 /// not interrupt the function callback if currently being executed.
 ///
-@external(erlang, "repeatedly_ffi", "set_state")
-@external(javascript, "./repeatedly_ffi.mjs", "set_state")
-pub fn set_state(repeater: Repeater(state), state: state) -> Nil
+pub fn set_state(repeater: Repeater(state), state: state) -> Nil {
+  update_state(repeater, fn(_state) { state })
+}
+
+/// Update the repeater state.
+///
+/// On Erlang if the repeater message queue is not empty then this message will
+/// handled after all other messages.
+///
+/// On JavaScript there is no message queue so it will stop immediately, though
+/// not interrupt the function callback if currently being executed.
+///
+@external(erlang, "repeatedly_ffi", "update_state")
+@external(javascript, "./repeatedly_ffi.mjs", "update_state")
+pub fn update_state(
+  repeater: Repeater(state),
+  function: fn(state) -> state,
+) -> Nil
