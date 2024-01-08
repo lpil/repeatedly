@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.0 - 2024-01-08
+
+- Added the `update_state` function.
+
 ## v2.0.1 - 2024-01-07
 
 - Stopping is now synchronous on Erlang.
