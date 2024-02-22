@@ -25,7 +25,12 @@ update_state(Pid, F) ->
     erlang:send(Pid, {update_state, F}).
 
 stop(Pid) when is_pid(Pid) ->
-    gen_server:stop(Pid).
+    try
+        gen_server:stop(Pid),
+        nil
+    catch
+        exit:noproc -> nil
+    end.
 
 init(State) ->
     schedule_next(State),

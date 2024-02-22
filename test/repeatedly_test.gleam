@@ -26,6 +26,9 @@ pub fn main() {
   repeatedly.call(5000, Nil, fn(_, _) {
     io.println("Sending stop")
     repeatedly.stop(repeater)
+
+    // Stop again to ensure that calling it multiple times is safe
+    repeatedly.stop(repeater)
   })
 
   sleep(10_000)

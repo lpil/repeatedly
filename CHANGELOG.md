@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.1.1 - 2024-02-22
+
+- Fixed a bug where calling the stop function multiple times would cause a crash
+  on Erlang.
+
 ## v2.1.0 - 2024-01-08
 
 - Added the `update_state` function.
