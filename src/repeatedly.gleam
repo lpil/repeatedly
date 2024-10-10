@@ -8,7 +8,7 @@ pub type Repeater(state)
 pub fn call(
   delay_ms: Int,
   state: state,
-  function: fn(state, Int) -> a,
+  function: fn(state, Int) -> state,
 ) -> Repeater(state)
 
 /// Stop the repeater, preventing it from triggering again.
@@ -35,7 +35,7 @@ pub fn stop(repeater: Repeater(state)) -> Nil
 @external(javascript, "./repeatedly_ffi.mjs", "replace")
 pub fn set_function(
   repeater: Repeater(state),
-  function: fn(state, Int) -> a,
+  function: fn(state, Int) -> state,
 ) -> Nil
 
 /// Set the repeater state.
