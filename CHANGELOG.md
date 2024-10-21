@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.1.1 - 2024-09-21
+
+- Fixed a bug where the repeated function could change the type of the state,
+  resulting in data corruption.
+
 ## v2.1.1 - 2024-02-22
 
 - Fixed a bug where calling the stop function multiple times would cause a crash
