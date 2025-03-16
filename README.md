@@ -5,7 +5,9 @@ Call a function repeatedly with a delay between each call.
 [![Package Version](https://img.shields.io/hexpm/v/repeatedly)](https://hex.pm/packages/repeatedly)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/repeatedly/)
 
-Works on both Erlang and JavaScript runtimes!
+Works on both Erlang and JavaScript runtimes! This means it's good for little scripts,
+but if you're writing a full OTP program then this isn't the right library to use, and
+something that exposes OTP compatible APIs would be better.
 
 ```sh
 gleam add repeatedly
